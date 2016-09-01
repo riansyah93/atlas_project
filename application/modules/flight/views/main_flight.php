@@ -12,18 +12,18 @@
     <title>ATLAS</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/css/font-awesome.min.css')?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oleo Script:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="../assets/css/agency.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/agency.min.css')?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../assets/css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/thumbnail-gallery.css')?>" rel="stylesheet">
     <style type="text/css">
     .row
     {
@@ -106,19 +106,19 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox" style="max-height: 500px; width: 100%; ">
                 <div class="item active">
-                  <img src="../assets/img/bg-1 [1].jpg" alt="...">
+                  <img src="<?php echo base_url('assets/img/bg-1 [1].jpg')?>" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
                 </div>
                 <div class="item">
-                  <img src="../assets/img/bg-2 [1].jpg" alt="...">
+                  <img src="<?php echo base_url('assets/img/bg-2 [1].jpg')?>" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
                 </div>
                 <div class="item">
-                  <img src="../assets/img/bg-3 [1].jpg" alt="...">
+                  <img src="<?php echo base_url('assets/img/bg-3 [1].jpg')?>" alt="...">
                   <div class="carousel-caption">
                     ...
                   </div>
@@ -147,21 +147,21 @@
               <div class="form-group col-xs-4">
                 <label for="exampleInputEmail3">Kota Asal</label>
                 <div class="input-group">
-                <div class="input-group-addon"><img src="../assets/img/fliup-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/fliup-b.png')?>" width="20px" height="20px"></div>
                 <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
                 </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputPassword3">Kota Tujuan</label>
                 <div class="input-group">
-                <div class="input-group-addon"><img src="../assets/img/land-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/land-b.png')?>" width="20px" height="20px"></div>
                 <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
               </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputEmail3">Jumlah Penumpang</label>
                      <div class="input-group">
-                <div class="input-group-addon"><img src="../assets/img/male-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/male-b.png')?>" width="20px" height="20px"></div>
                     <select class="form-control">
                         <option>1</option>
                         <option>2</option>
@@ -170,7 +170,7 @@
                         <option>5</option>
                     </select>
                 
-                <div class="input-group-addon"><img src="../assets/img/child-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/child-b.png')?>" width="20px" height="20px"></div>
                     <select class="form-control">
                         <option>1</option>
                         <option>2</option>
@@ -179,7 +179,7 @@
                         <option>5</option>
                     </select>
                 
-                <div class="input-group-addon"><img src="../assets/img/baby-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/baby-b.png')?>" width="20px" height="20px"></div>
                     <select class="form-control">
                         <option>1</option>
                         <option>2</option>
@@ -194,14 +194,14 @@
                   <div class="form-group col-xs-4">
                 <label for="exampleInputEmail3">Tanggal Keberangkatan</label>
                 <div class="input-group">
-                <div class="input-group-addon"><img src="../assets/img/cal-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
                 <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
                 </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputPassword3">Tanggal Pulang</label>
                 <div class="input-group">
-                <div class="input-group-addon"><img src="../assets/img/cal-b.png" width="20px" height="20px"></div>
+                <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
                 <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
               </div>
               </div>
@@ -354,10 +354,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="../assets/js/jquery.js"></script>
+    <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
 </body>
 
