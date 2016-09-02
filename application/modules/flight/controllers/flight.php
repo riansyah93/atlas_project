@@ -1,38 +1,69 @@
 <?php
-/*
- * ***************************************************************
- * Script : 
- * Version : 
- * Date :
- * Author : Pudyasto Adi W.
- * Email : mr.pudyasto@gmail.com
- * Description : 
- * ***************************************************************
- */
+
  
 /**
  * Description of Test
  *
- * @author adi
+ * @author Riansyah Rafsanjani
  */
-class Flight extends CI_Controller{
+class Flight extends MY_Controller{
     //put your code here
     public function __construct() {
         parent::__construct();
+        $this->load->library('curl'); 
     }
     
     public function index() {
-        // echo "<h1>Module Test</h1>";
-        // echo "<p>Modul ini adalah modul HMVC pertama saya</p>";
-        // echo "<p>Tanpa menggunakan view dan model</p>";
-        // echo "<p>Lokasi di application/modules/test/controlers/Test.php</p>";
-    $this->load->view('main_flight');
+        
+        $this->middle = 'main_flight'; 
+        $this->layout();
+    
     }
 
     public function search()
     {
-     $this->load->view('flight_list');   
+        $this->middle = 'flight_list'; 
+        $this->layout(); 
     }
+
+    public function order()
+    {
+        $this->middle = 'flight_order'; 
+        $this->layout(); 
+    }
+
+     public function payment()
+    {
+        $this->middle = 'flight_payment'; 
+        $this->layout(); 
+    }
+
+     public function order_information()
+    {
+        $this->middle = 'flight_order_information'; 
+        $this->layout(); 
+    }
+
+    public function get_flight()
+    {
+        $url = "http://api-sandbox.tiket.com/search/flight";
+        $param = array(
+            'd'=>'CGK',
+            'a'=>'DPS',
+            'date'=>'2016-09-25',
+            'ret_date'=>'2016-09-30',
+            'adult'=>1,
+            'child'=>0,
+            'infant'=>0,
+            'token'=>'75f0e15a436644ffd9a226553214cd5236078b26',
+            'v'=>3,
+            'output'=>'xml');
+        echo $url.($param ? '?'.http_build_query($param, NULL, '&') : '');
+       $result = $this->curl->_simple_call('get',$url,$param);
+     //var_dump($result);
+        echo "<pre>",print_r($result),"</pre>";die();
+    }
+
 }
 
 ?>

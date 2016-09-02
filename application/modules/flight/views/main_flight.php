@@ -1,99 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>ATLAS</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
-<link href="<?php echo base_url('assets/css/font-awesome.min.css')?>" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Oleo Script:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Theme CSS -->
-    <link href="<?php echo base_url('assets/css/agency.min.css')?>" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url('assets/css/thumbnail-gallery.css')?>" rel="stylesheet">
-    <style type="text/css">
-    .row
-    {
-       /* margin-top: 50px;*/
-    }
-    .inline-separator
-    {
-      margin-top: 50px; 
-
-    }
-
-    .navbar-fixed
-    {
-        background-color: #00579F;
-    }
-
-    </style>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Atlas Tour</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Trip</h2></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Blogs</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">About Us</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
+<div class="container">
         <div class="row">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -145,17 +50,17 @@
             <form>
                 <div class="row">
               <div class="form-group col-xs-4">
-                <label for="exampleInputEmail3">Kota Asal</label>
+                <label for="depart">Kota Asal</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/fliup-b.png')?>" width="20px" height="20px"></div>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
+                <input type="text" class="form-control" id="depart" name="depart" placeholder="kota asal">
                 </div>
               </div>
               <div class="form-group col-xs-4">
-                <label for="exampleInputPassword3">Kota Tujuan</label>
+                <label for="arrive">Kota Tujuan</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/land-b.png')?>" width="20px" height="20px"></div>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
+                <input type="password" class="form-control" id="arrive" name="arrive" placeholder="kota tujuan">
               </div>
               </div>
               <div class="form-group col-xs-4">
@@ -192,17 +97,17 @@
               </div>
               <div class="row" style="margin-top: ">
                   <div class="form-group col-xs-4">
-                <label for="exampleInputEmail3">Tanggal Keberangkatan</label>
+                <label for="start_date">Tanggal Keberangkatan</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
+                <input type="text" class="form-control" id="start_date" name="start_date" placeholder="Keberangkatan">
                 </div>
               </div>
               <div class="form-group col-xs-4">
-                <label for="exampleInputPassword3">Tanggal Pulang</label>
+                <label for="end_date">Tanggal Pulang</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
+                <input type="text" class="form-control" id="end_date" placeholder="Kepulangan">
               </div>
               </div>
                <div class="form-group col-xs-4">
@@ -256,109 +161,4 @@
         </div>
     </section>
         </div>    
-            <!--
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
         </div>
-
-        <hr> -->
-
-        <!-- Footer -->
-        <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Atlas Tour and Travel 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="<?php echo base_url('assets/js/jquery.js')?>"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
-
-</body>
-
-</html>
