@@ -10,21 +10,26 @@
                 <thead><h3>Informasi Pemesanan</h3></thead>
                <tr>
                   <td>
-                      <img src="http://www.tiket.com/images/tiket2/icon_airasia_2.jpg"><br> 
-                      <p>Air Asia</p>
+                      <img src="<?php echo  $myoder->data->order_photo?>"><br> 
+                      <p><?php echo $myoder->data->uri; ?></p>
                   </td>
                 </tr>
                <tr>
-                 <td>GA 712</td>
+                 <td><?php echo $myoder->data->detail->flight_number; ?></td>
                </tr>
                <tr>
-                 <td>23:40
-                 <br> Jakarta-CGK
+                 <td><?php echo $myoder->data->detail->departure_time; ?>
+                 <br> <?php echo $myoder->data->detail->departure_airport_name; ?>-<?php echo $myoder->data->detail->departure_city; ?>
                  </td>
                </tr>
                 <tr>
-                 <td>01:40
-                 <br> Medan-MDN
+                 <td> <?php echo $myoder->data->detail->arrival_time; ?>
+                 <br> <?php echo $myoder->data->detail->arrival_airport_name; ?>-<?php echo $myoder->data->detail->arrival_city; ?>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                 <?php echo $myoder->data->order_name; ?>
                  </td>
                </tr>
               </table>    

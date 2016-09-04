@@ -16,6 +16,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+   
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> 
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
@@ -29,7 +32,7 @@
 
     <!-- Theme CSS -->
     <link href="<?php echo base_url('assets/css/agency.min.css')?>" rel="stylesheet">
-    <!-- Custom CSS -->
+        <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/css/thumbnail-gallery.css')?>" rel="stylesheet">
     <style type="text/css">
     .row
@@ -62,10 +65,9 @@
 
 <body>
 <?php if($header) echo $header ;?>
- <?php if($middle) echo $middle ;?>
- <?php if($footer) echo $footer ;?>
-        <!-- Page Content -->
-        <!-- Footer -->
+<?php if($middle) echo $middle ;?>
+<?php if($footer) echo $footer ;?>
+       
 </body>
 
 </html>

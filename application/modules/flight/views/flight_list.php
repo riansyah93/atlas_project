@@ -1,53 +1,109 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#depart").select2();
+  $("#arrival").select2();
+});
+</script>
+
 <div class="container">
     <br><br>
           <div class="row">
          <h2>Tiket Pesawat</h2>
         <div id="search-bar" style="background-color: #BFCFDB; padding: 10px; ">
             
-            <form>
+            <form action="<?php echo base_url('flight/get_flight');?>" method = "GET">
                 <div class="row">
               <div class="form-group col-xs-4">
                 <label for="exampleInputEmail3">Kota Asal</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/fliup-b.png')?>" width="20px" height="20px"></div>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
+                <select class="form-control" id="depart" name="depart" placeholder="kota asal">
+                  <option value="-">-</option>
+                   <?php 
+                   foreach ($airport as $list2) {
+                    if ($post['depart'] == $list2['airport_code']) {
+                      echo "<option value='".$list2['airport_code']."' selected>".$list2['location_name']." - ".$list2['airport_code']."</option>";
+                    }else
+                    {
+                     echo "<option value='".$list2['airport_code']."'>".$list2['location_name']." - ".$list2['airport_code']."</option>"; 
+                    }
+                     
+                   
+                   }
+                   ?>
+                   
+                </select>
                 </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputPassword3">Kota Tujuan</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/land-b.png')?>" width="20px" height="20px"></div>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
+                 <select class="form-control" id="arrival" name="arrival" placeholder="kota asal">
+                  <option value="-">-</option>
+                   <?php 
+                   foreach ($airport as $list2) {
+                    if ($post['arrival'] == $list2['airport_code']) {
+                      echo "<option value='".$list2['airport_code']."' selected>".$list2['location_name']." - ".$list2['airport_code']."</option>";
+                    }else
+                    {
+                     echo "<option value='".$list2['airport_code']."'>".$list2['location_name']." - ".$list2['airport_code']."</option>"; 
+                    }
+                     
+                   
+                   }
+                   ?>
+                   
+                </select>
               </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputEmail3">Jumlah Penumpang</label>
                      <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/male-b.png')?>" width="20px" height="20px"></div>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" id="adult" name="adult">
+                        <?php 
+                        for ($i=1; $i <=5 ; $i++) { 
+                          if ($i == $post['adult']) {
+                           echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                          }else
+                          {
+                              echo '<option value="'.$i.'">'.$i.'</option>';
+                          }
+                        }
+
+                        ?>
+                       
                     </select>
                 
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/child-b.png')?>" width="20px" height="20px"></div>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" name="child" id="child">
+                        <?php 
+                        for ($i=0; $i <=5 ; $i++) { 
+                          if ($i == $post['child']) {
+                           echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                          }else
+                          {
+                              echo '<option value="'.$i.'">'.$i.'</option>';
+                          }
+                        }
+
+                        ?>
                     </select>
                 
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/baby-b.png')?>" width="20px" height="20px"></div>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" name="infant" id="infant">
+                        <?php 
+                        for ($i=0; $i <=5 ; $i++) { 
+                          if ($i == $post['infant']) {
+                           echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                          }else
+                          {
+                              echo '<option value="'.$i.'">'.$i.'</option>';
+                          }
+                        }
+
+                        ?>
                     </select>
                 </div>
               </div>
@@ -57,18 +113,18 @@
                 <label for="exampleInputEmail3">Tanggal Keberangkatan</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="kota asal">
+                <input type="text" class="form-control" value="<?php echo date('Y-m-d',strtotime($post['start_date']))?>" id="start_date" name="start_date" placeholder="Keberangkatan">
                 </div>
               </div>
               <div class="form-group col-xs-4">
                 <label for="exampleInputPassword3">Tanggal Pulang</label>
                 <div class="input-group">
                 <div class="input-group-addon"><img src="<?php echo base_url('assets/img/cal-b.png')?>" width="20px" height="20px"></div>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="kota tujuan">
+                <input type="text" class="form-control" value="-" id="end_date" name="end_date" placeholder="Kepulangan">
               </div>
               </div>
                <div class="form-group col-xs-4">
-                <button type="button" class="btn btn-primary col-xs-12" style="margin-top: 25px">Cari</button>
+                <button type="submit" value="Submit" class="btn btn-primary col-xs-12" style="margin-top: 25px">Cari</button>
                </div>
 
               </div>
@@ -90,57 +146,47 @@
                    <td><label>HARGA</label></td> 
                    <td><label></label></td>
                 </thead>
-                <tr class="warning">
-                    <td><img src="http://www.tiket.com/images/tiket2/icon_lion_2.jpg"> <br> <p>Lion Air</p></td>
-                   <td>21:00<br></td>
-                   <td>00:00</td>
-                   <td>1 j 45 m</td>
-                   <td>1 TRANSIT</td>
-                   <td>0</td>
-                   <td>1.350.000</td>
-                   <td><a href="flight_order.html"><button type="button" class="btn btn-primary">Pesan</button></a></td>
-                </tr>
-                 <tr>
-                    <td><img src="http://www.tiket.com/images/tiket2/icon_airasia_2.jpg"> <br> <p>Air Asia</p></td>
-                   <td>21:00</td>
-                   <td>00:00</td>
-                   <td>1 j 45 m</td>
-                   <td>1 TRANSIT</td>
-                   <td>0</td>
-                   <td>1.350.000</td>
-                   <td><button type="button" class="btn btn-primary">Pesan</button></td>
-                </tr>
-                 <tr class="warning">
-                    <td><img src="http://www.tiket.com/images/tiket2/icon_lion_2.jpg"> <br> <p>Lion Air</p></td>
-                   <td>21:00</td>
-                   <td>00:00</td>
-                   <td>1 j 45 m</td>
-                   <td>1 TRANSIT</td>
-                   <td>0</td>
-                   <td>1.350.000</td>
-                   <td><button type="button" class="btn btn-primary">Pesan</button></td>
-                </tr>
-                 <tr>
-                    <td><img src="http://www.tiket.com/images/tiket2/icon_lion_2.jpg"> <br> <p>Lion Air</p></td>
-                   <td>21:00</td>
-                   <td>00:00</td>
-                   <td>1 j 45 m</td>
-                   <td>1 TRANSIT</td>
-                   <td>0</td>
-                   <td>1.350.000</td>
-                   <td><button type="button" class="btn btn-primary">Pesan</button></td>
-                </tr>
-                 <tr class="warning">
-                    <td><img src="http://www.tiket.com/images/tiket2/icon_lion_2.jpg"> <br> <p>Lion Air</p></td>
-                   <td>21:00</td>
-                   <td>00:00</td>
-                   <td>1 j 45 m</td>
-                   <td>1 TRANSIT</td>
-                   <td>0</td>
-                   <td>1.350.000</td>
-                   <td><button type="button" class="btn btn-primary">Pesan</button></td>
-                </tr>
-                </table>
+
+                <?php 
+                  $counter = 0;
+                  if ($list != " ") {
+                    
+                      foreach($list->result as $temp)
+                      { 
+                        if($counter%2 == 0)
+                        {
+                          echo '<tr class="warning">';
+                        }else
+                        {
+                          echo '<tr>';
+                        }
+                    ?>
+                        
+                        <td><img src="<?php echo $temp->image; ?>"> <br> <p><?php echo $temp->airlines_name; ?></p></td>
+                       <td><?php echo $temp->flight_infos->flight_info->simple_departure_time; ?><br></td>
+                       <td><?php echo $temp->flight_infos->flight_info->simple_arrival_time;?></td>
+                       <td><?php echo $temp->duration?></td>
+                       <td><?php echo $temp->stop?></td>
+                       <td>0</td>
+                       <td><?php echo $temp->markup_price_string; ?></td>
+                       <form method="post" action="<?php echo base_url('flight/get_flight_data')?>" >
+                       <input type="hidden" name="flight_id" value="<?php echo $temp->flight_id; ?>">
+                       <input type="hidden" name="start_date" value="<?php echo $post['start_date']; ?>">
+                       
+                       <td> <button type="submit" value="submit" class="btn btn-primary">Pesan</button></a> </form>
+</td>
+                    </tr>
+                    <?php
+                    $counter++;
+                      }
+                      echo " </table>";
+                    }else{
+                      echo " </table>";
+                      echo '<center><img src="'.base_url("assets/img/not_found.jpg").'" width="700px"> </center> <br> <br>';
+                    } 
+                ?>
+
+               
             </div>
 
         </div>

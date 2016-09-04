@@ -7,46 +7,51 @@
            <div id="data-diri" style="border-style: groove; padding: 10px;">
              
            <h3> Data Diri </h3>
-           <form>
+           <form method="post" action="<?php echo base_url('flight/add_order')?>" >
+           <input type="hidden" name="flight_id" value="<?php echo $list->flight_id; ?>">
+           <input type="hidden" name="count_adult" value="<?php echo $list->count_adult; ?>">
+           <input type="hidden" name="count_child" value="<?php echo $list->count_child; ?>">
+           <input type="hidden" name="count_infant" value="<?php echo $list->count_infant; ?>">
              <div class="row">
                <div class="form-group col-xs-2">
                 <label for="exampleInputEmail1">Salutation </label>
-                <select class="form-control">
+                <select class="form-control" name="conSalutation">
                   <option>Tuan</option>
                   <option>Nyonya</option>
                   
                 </select>
               </div>
                <div class="form-group col-xs-5">
-                <label for="exampleInputEmail1">FirstName</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="conFirstName">FirstName</label>
+                <input type="text" name="conFirstName" class="form-control" id="conFirstName" placeholder="Email">
               </div>
               <div class="form-group col-xs-5">
-                <label for="exampleInputEmail1">LastName</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="conLastName">LastName</label>
+                <input type="text" name="conLastName" class="form-control" id="conLastName" placeholder="Email">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-xs-6">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="conEmailAddress">Email</label>
+                <input type="email" name ="conEmailAddress" class="form-control" id="conEmailAddress" placeholder="Email">
               </div>
               <div class="form-group col-xs-6">
-                <label for="exampleInputEmail1">Phone</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="conPhone">Phone</label>
+                <input type="number" name="conPhone" class="form-control" id="conPhone" placeholder="Email">
               </div>
             </div>
-            </form>
+            
             </div>
             <br>
              <div id="data-diri" style="border-style: groove; padding: 10px;">
              
-           <h3> Data Penumpang </h3>
-           <form>
+           <h3> Data Penumpang(Dewasa-1) </h3>
+          
+           <div id="adult-1">
              <div class="row">
                <div class="form-group col-xs-2">
                 <label for="exampleInputEmail1">Salutation </label>
-                <select class="form-control">
+                <select class="form-control" name="titlea1">
                   <option>Tuan</option>
                   <option>Nyonya</option>
                   
@@ -54,11 +59,11 @@
               </div>
                <div class="form-group col-xs-5">
                 <label for="exampleInputEmail1">FirstName</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="text" name="firstnamea1" class="form-control" id="exampleInputEmail1" placeholder="Email">
               </div>
               <div class="form-group col-xs-5">
                 <label for="exampleInputEmail1">LastName</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="text" name="lastnamea1" class="form-control" id="exampleInputEmail1" placeholder="Email">
               </div>
             </div>
             <div class="row">
@@ -68,7 +73,7 @@
               </div>
               <div class="form-group col-xs-6">
                 <label for="exampleInputEmail1">Phone</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="number" name="conOtherPhone" class="form-control" id="exampleInputEmail1" placeholder="Email">
               </div>
             </div>
             <label for="exampleInputEmail1">Tanggal Lahir</label>
@@ -77,19 +82,19 @@
               <div class="form-group col-xs-6">
                 
                 <div class="col-xs-3" id="exampleInputEmail1">
-                  <select class="form-control" placeholder="tanggal">
+                  <select class="form-control" placeholder="tanggal" name="datebirtha1">
                   <option>1</option>
                   <option>2</option>
                   </select>
                 </div>
                 <div class="col-xs-5" id="exampleInputEmail1">
-                  <select class="form-control" placeholder="tanggal">
+                  <select class="form-control" placeholder="tanggal" name="monthBirtha1">
                   <option>Januari</option>
                   <option>Februari</option>
                   </select>
                 </div>
                 <div class="col-xs-4" id="exampleInputEmail1">
-                  <select class="form-control" placeholder="tanggal">
+                  <select class="form-control" placeholder="tanggal" name="yearBirtha1">
                   <option>2012</option>
                   <option>2013</option>
                   </select>
@@ -99,12 +104,223 @@
               
             </div>
             
-            
             </div>
+            </div>
+
+            <?php 
+            if($list->count_adult > 1){
+              for ($i=2; $i <= $list->count_adult ; $i++) { 
+            ?>
+                  <div id="data-diri" style="border-style: groove; padding: 10px;">
+             
+                       <h3> Data Penumpang(Dewasa-<?php echo $i;?>) </h3>
+                     
+                       <div id="adult-<?php echo $i;?>">
+                         <div class="row">
+                           <div class="form-group col-xs-2">
+                            <label for="exampleInputEmail1">Salutation </label>
+                            <select class="form-control" name="titlea<?php echo $i;?>">
+                              <option>Tuan</option>
+                              <option>Nyonya</option>
+                              
+                            </select>
+                          </div>
+                           <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">FirstName</label>
+                            <input type="text" name="firstnamea<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                          <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">LastName</label>
+                            <input type="text" name="lastnamea<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                        </div>
+                        <label for="exampleInputEmail1">Tanggal Lahir</label>
+                        <div class="row">
+
+                          <div class="form-group col-xs-6">
+                            
+                            <div class="col-xs-3" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="datebirtha<?php echo $i;?>">
+                              <option>1</option>
+                              <option>2</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-5" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="monthBirtha<?php echo $i;?>">
+                              <option>Januari</option>
+                              <option>Februari</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="yearBirtha<?php echo $i;?>">
+                              <option>2012</option>
+                              <option>2013</option>
+                              </select>
+                            </div>
+                            
+                          </div>
+                          
+                        </div>
+                        
+                        </div>
+            </div>
+            <br>
+
+            <?php
+              }
+            }
+            ?>
+
+              <?php 
+            if($list->count_child >= 1){
+              for ($i=1; $i <= $list->count_child ; $i++) { 
+            ?>
+                  <div id="data-diri" style="border-style: groove; padding: 10px;">
+             
+                       <h3> Data Penumpang(Anak-<?php echo $i;?>) </h3>
+                     
+                       <div id="child-<?php echo $i;?>">
+                         <div class="row">
+                           <div class="form-group col-xs-2">
+                            <label for="exampleInputEmail1">Salutation </label>
+                            <select class="form-control" name="titlec<?php echo $i;?>">
+                              <option>Tuan</option>
+                              <option>Nyonya</option>
+                              
+                            </select>
+                          </div>
+                           <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">FirstName</label>
+                            <input type="text" name="firstnamec<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                          <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">LastName</label>
+                            <input type="text" name="lastnamec<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                        </div>
+                        <label for="exampleInputEmail1">Tanggal Lahir</label>
+                        <div class="row">
+
+                          <div class="form-group col-xs-6">
+                            
+                            <div class="col-xs-3" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="datebirthc<?php echo $i;?>">
+                              <option>1</option>
+                              <option>2</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-5" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="monthBirthc<?php echo $i;?>">
+                              <option>Januari</option>
+                              <option>Februari</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="yearBirthc<?php echo $i;?>">
+                              <option>2012</option>
+                              <option>2013</option>
+                              </select>
+                            </div>
+                            
+                          </div>
+                          
+                        </div>
+                        
+                        </div>
+            </div>
+
+            <br>
+            <?php
+              }
+            }
+            ?>
+
+             <?php 
+            if($list->count_infant >= 1){
+              for ($i=1; $i <= $list->count_infant ; $i++) { 
+            ?>
+                  <div id="data-diri" style="border-style: groove; padding: 10px;">
+             
+                       <h3> Data Penumpang(Bayi-<?php echo $i;?>) </h3>
+                     
+                       <div id="child-<?php echo $i;?>">
+                         <div class="row">
+                           <div class="form-group col-xs-2">
+                            <label for="exampleInputEmail1">Salutation </label>
+                            <select class="form-control" name="titlei<?php echo $i;?>">
+                              <option>Tuan</option>
+                              <option>Nyonya</option>
+                              
+                            </select>
+                          </div>
+                           <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">FirstName</label>
+                            <input type="text" name="firstnamei<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                          <div class="form-group col-xs-5">
+                            <label for="exampleInputEmail1">LastName</label>
+                            <input type="text" name="lastnamei<?php echo $i;?>" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                          </div>
+                        </div>
+                        <label for="exampleInputEmail1">Tanggal Lahir</label>
+                        <div class="row">
+
+                          <div class="form-group col-xs-6">
+                            
+                            <div class="col-xs-3" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="datebirthi<?php echo $i;?>">
+                              <option>1</option>
+                              <option>2</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-5" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="monthBirthi<?php echo $i;?>">
+                              <option>Januari</option>
+                              <option>Februari</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4" id="exampleInputEmail1">
+                              <select class="form-control" placeholder="tanggal" name="yearBirthi<?php echo $i;?>">
+                              <option>2012</option>
+                              <option>2013</option>
+                              </select>
+                            </div>
+                            
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                          <div class="form-group col-xs-12">
+                            <label for="exampleInputEmail1">Parent </label>
+                            <select class="form-control" name="parenti<?php echo $i;?>">
+                              <?php
+                              for ($i=1; $i <= $list->count_adult ; $i++) { 
+                               echo "<option value='".$i."'>Parent - ".$i."</option>"; 
+                              
+                              }
+                              ?>
+                              
+                            </select>
+                          </div>
+                          </div>
+                          
+                        </div>
+                        
+                        </div>
+            </div>
+
+            <br>
+            <?php
+              }
+            }
+            ?>
+
+          
+
+
             <div class="row" style="padding: 10px;">
-            <a href="flight_order_information.html">
-              <button type="button" class="btn btn-primary col-xs-11" style="margin-top: 25px">Lakukan Pembayaran</button>
-            </a>
+           
+              <button type="submit" value="submit" class="btn btn-primary col-xs-11" style="margin-top: 25px">Lakukan Pembayaran</button>
+           
             </div>
             </form>
             </div>
@@ -113,18 +329,18 @@
            <div class="row" id="rincian_penerbangan" style="border-style: groove; padding: 10px;">
                 <table class="table">
                 <thead><h3>Informasi Pemesanan</h3></thead>
-               <tr><td><img src="http://www.tiket.com/images/tiket2/icon_airasia_2.jpg"> <br> <p>Air Asia</p></tr></td>
+               <tr><td><img src="<?php echo $list->image; ?>"> <br> <p><?php echo $list->airlines_name; ?></p></tr></td>
                <tr>
-                 <td>GA 712</td>
+                 <td><?php echo $list->flight_infos->flight_info->flight_number; ?></td>
                </tr>
                <tr>
-                 <td>23:40
-                 <br> Jakarta-CGK
+                 <td><?php echo $list->flight_infos->flight_info->simple_departure_time; ?>
+                 <br> <?php echo $list->flight_infos->flight_info->departure_city_name; ?>-<?php echo $list->flight_infos->flight_info->departure_city; ?>
                  </td>
                </tr>
                 <tr>
-                 <td>01:40
-                 <br> Medan-MDN
+                 <td><?php echo $list->flight_infos->flight_info->simple_arrival_time; ?>
+                 <br> <?php echo $list->flight_infos->flight_info->arrival_city_name; ?>-<?php echo $list->flight_infos->flight_info->arrival_city; ?>
                  </td>
                </tr>
                </table>    
@@ -135,11 +351,15 @@
                <thead><h3>Rincian Biaya</h3></thead>
                <tr>
                  <td>1 Dewasa</td>
-                 <td>IDR 2.450.000</td>
+                 <td><?php echo $list->price_adult?></td>
                </tr>
                <tr>
                  <td>1 Anak</td>
-                 <td>IDR 2.450.000</td>
+                 <td><?php echo $list->price_child?></td>
+               </tr>
+                <tr>
+                 <td>1 Bayi</td>
+                 <td><?php echo $list->price_infant?></td>
                </tr>
                 <tr>
                  <td>Pajak</td>
