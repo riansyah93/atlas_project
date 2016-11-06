@@ -12,6 +12,7 @@
            <input type="hidden" name="count_adult" value="<?php echo $list->count_adult; ?>">
            <input type="hidden" name="count_child" value="<?php echo $list->count_child; ?>">
            <input type="hidden" name="count_infant" value="<?php echo $list->count_infant; ?>">
+           <input type="hidden" name="token_id" value="<?php echo $token_id; ?>">
              <div class="row">
                <div class="form-group col-xs-2">
                 <label for="exampleInputEmail1">Salutation </label>
@@ -83,19 +84,33 @@
                 
                 <div class="col-xs-3" id="exampleInputEmail1">
                   <select class="form-control" placeholder="tanggal" name="datebirtha1">
-                  <option>1</option>
-                  <option>2</option>
+                    <?php for($a =1; $a <=31; $a++){
+                      echo "<option value='".str_pad($a, 2, "0", STR_PAD_LEFT)."'>".str_pad($a, 2, "0", STR_PAD_LEFT)."</option>";
+                    }?>
                   </select>
                 </div>
                 <div class="col-xs-5" id="exampleInputEmail1">
                   <select class="form-control" placeholder="tanggal" name="monthBirtha1">
-                  <option>Januari</option>
-                  <option>Februari</option>
+                  <option value="01">Januari</option>
+                  <option value="02">Februari</option>
+                  <option value="03">Maret</option>
+                  <option value="04">April</option>
+                  <option value="05">Mei</option>
+                  <option value="06">Juni</option>
+                  <option value="07">Juli</option>
+                  <option value="08">Agustus</option>
+                  <option value="09">September</option>
+                  <option value="10">Oktober</option>
+                  <option value="11">November</option>
+                  <option value="12">Desember</option>
                   </select>
                 </div>
                 <div class="col-xs-4" id="exampleInputEmail1">
                   <select class="form-control" placeholder="tanggal" name="yearBirtha1">
-                  <option>2012</option>
+                  <?php for($a =2016; $a >=1910; $a--){
+                    echo "<option value='".$a."'>".$a."</option>";
+                    }?>
+                  
                   <option>2013</option>
                   </select>
                 </div>
@@ -141,20 +156,32 @@
                             
                             <div class="col-xs-3" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="datebirtha<?php echo $i;?>">
-                              <option>1</option>
-                              <option>2</option>
+                             <?php for($a =1; $a <=31; $a++){
+                      echo "<option value='".str_pad($a, 2, "0", STR_PAD_LEFT)."'>".str_pad($a, 2, "0", STR_PAD_LEFT)."</option>";
+                    }?>
                               </select>
                             </div>
                             <div class="col-xs-5" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="monthBirtha<?php echo $i;?>">
-                              <option>Januari</option>
-                              <option>Februari</option>
+                                  <option value="01">Januari</option>
+                                  <option value="02">Februari</option>
+                                  <option value="03">Maret</option>
+                                  <option value="04">April</option>
+                                  <option value="05">Mei</option>
+                                  <option value="06">Juni</option>
+                                  <option value="07">Juli</option>
+                                  <option value="08">Agustus</option>
+                                  <option value="09">September</option>
+                                  <option value="10">Oktober</option>
+                                  <option value="11">November</option>
+                                  <option value="12">Desember</option>
                               </select>
                             </div>
                             <div class="col-xs-4" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="yearBirtha<?php echo $i;?>">
-                              <option>2012</option>
-                              <option>2013</option>
+                              <?php for($a =2016; $a >=1910; $a--){
+                                    echo "<option value='".$a."'>".$a."</option>";
+                              }?>
                               </select>
                             </div>
                             
@@ -184,8 +211,8 @@
                            <div class="form-group col-xs-2">
                             <label for="exampleInputEmail1">Salutation </label>
                             <select class="form-control" name="titlec<?php echo $i;?>">
-                              <option>Tuan</option>
-                              <option>Nyonya</option>
+                             <option value="Mstr">Mstr</option>
+                              <option value="Miss">Miss</option>
                               
                             </select>
                           </div>
@@ -205,20 +232,32 @@
                             
                             <div class="col-xs-3" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="datebirthc<?php echo $i;?>">
-                              <option>1</option>
-                              <option>2</option>
+                              <?php for($a =1; $a <=31; $a++){
+                            echo "<option value='".str_pad($a, 2, "0", STR_PAD_LEFT)."'>".str_pad($a, 2, "0", STR_PAD_LEFT)."</option>";
+                    }?>
                               </select>
                             </div>
                             <div class="col-xs-5" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="monthBirthc<?php echo $i;?>">
-                              <option>Januari</option>
-                              <option>Februari</option>
+                                  <option value="01">Januari</option>
+                                  <option value="02">Februari</option>
+                                  <option value="03">Maret</option>
+                                  <option value="04">April</option>
+                                  <option value="05">Mei</option>
+                                  <option value="06">Juni</option>
+                                  <option value="07">Juli</option>
+                                  <option value="08">Agustus</option>
+                                  <option value="09">September</option>
+                                  <option value="10">Oktober</option>
+                                  <option value="11">November</option>
+                                  <option value="12">Desember</option>
                               </select>
                             </div>
                             <div class="col-xs-4" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="yearBirthc<?php echo $i;?>">
-                              <option>2012</option>
-                              <option>2013</option>
+                             <?php for($a =2016; $a >=2004; $a--){
+                                echo "<option value='".$a."'>".$a."</option>";
+                             }?>
                               </select>
                             </div>
                             
@@ -248,8 +287,8 @@
                            <div class="form-group col-xs-2">
                             <label for="exampleInputEmail1">Salutation </label>
                             <select class="form-control" name="titlei<?php echo $i;?>">
-                              <option>Tuan</option>
-                              <option>Nyonya</option>
+                              <option value="Mstr">Mstr</option>
+                              <option value="Miss">Miss</option>
                               
                             </select>
                           </div>
@@ -269,20 +308,32 @@
                             
                             <div class="col-xs-3" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="datebirthi<?php echo $i;?>">
-                              <option>1</option>
-                              <option>2</option>
+                              <?php for($a =1; $a <=31; $a++){
+                            echo "<option value='".str_pad($a, 2, "0", STR_PAD_LEFT)."'>".str_pad($a, 2, "0", STR_PAD_LEFT)."</option>";
+                    }?>
                               </select>
                             </div>
                             <div class="col-xs-5" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="monthBirthi<?php echo $i;?>">
-                              <option>Januari</option>
-                              <option>Februari</option>
+                              <option value="01">Januari</option>
+                                  <option value="02">Februari</option>
+                                  <option value="03">Maret</option>
+                                  <option value="04">April</option>
+                                  <option value="05">Mei</option>
+                                  <option value="06">Juni</option>
+                                  <option value="07">Juli</option>
+                                  <option value="08">Agustus</option>
+                                  <option value="09">September</option>
+                                  <option value="10">Oktober</option>
+                                  <option value="11">November</option>
+                                  <option value="12">Desember</option>
                               </select>
                             </div>
                             <div class="col-xs-4" id="exampleInputEmail1">
                               <select class="form-control" placeholder="tanggal" name="yearBirthi<?php echo $i;?>">
-                              <option>2012</option>
-                              <option>2013</option>
+                              <?php for($a =2016; $a >=2014; $a--){
+                                echo "<option value='".$a."'>".$a."</option>";
+                             }?>
                               </select>
                             </div>
                             
@@ -294,7 +345,7 @@
                             <select class="form-control" name="parenti<?php echo $i;?>">
                               <?php
                               for ($i=1; $i <= $list->count_adult ; $i++) { 
-                               echo "<option value='".$i."'>Parent - ".$i."</option>"; 
+                              echo "<option value='".$i."'>Parent - ".$i."</option>"; 
                               
                               }
                               ?>

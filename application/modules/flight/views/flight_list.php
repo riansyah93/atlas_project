@@ -168,10 +168,11 @@ $(document).ready(function() {
                        <td><?php echo $temp->duration?></td>
                        <td><?php echo $temp->stop?></td>
                        <td>0</td>
-                       <td><?php echo $temp->markup_price_string; ?></td>
+                       <td><?php echo "IDR ".number_format((int)$temp->price_value); ?></td>
                        <form method="post" action="<?php echo base_url('flight/get_flight_data')?>" >
                        <input type="hidden" name="flight_id" value="<?php echo $temp->flight_id; ?>">
                        <input type="hidden" name="start_date" value="<?php echo $post['start_date']; ?>">
+                       <input type="hidden" name="token_id" value="<?php echo $token_id; ?>">
                        
                        <td> <button type="submit" value="submit" class="btn btn-primary">Pesan</button></a> </form>
 </td>

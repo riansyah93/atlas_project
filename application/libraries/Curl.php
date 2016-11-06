@@ -229,7 +229,9 @@ class Curl {
 			$url = site_url($url);
 		}
 		$this->url = $url;
+		//echo $this->url;
 		$this->session = curl_init($this->url);
+		//echo "<pre>",print_r($this->session),"</pre>";
 		return $this;
 	}
 	// End a session and return the results
@@ -265,6 +267,7 @@ class Curl {
 		// Execute the request & and hide all output
 		$this->response = curl_exec($this->session);
 		$this->info = curl_getinfo($this->session);
+		//echo "<pre>",print_r($this->info),"</pre>";
 		// Request failed
 		if ($this->response === FALSE)
 		{
@@ -282,6 +285,7 @@ class Curl {
 			curl_close($this->session);
 			$this->last_response = $this->response;
 			$this->set_defaults();
+			//echo "<pre>",print_r($this->last_response),"</pre>";
 			return $this->last_response;
 		}
 	}

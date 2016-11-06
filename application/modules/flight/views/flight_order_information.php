@@ -1,3 +1,4 @@
+
 <div class="container">
     <br><br>
          
@@ -10,26 +11,26 @@
                 <thead><h3>Informasi Pemesanan</h3></thead>
                <tr>
                   <td>
-                      <img src="<?php echo  $myoder->data->order_photo?>"><br> 
-                      <p><?php echo $myoder->data->uri; ?></p>
+                      <img src="<?php echo  $myorder->data[0]->order_photo;?>"><br> 
+                      <p><?php echo $myorder->data[0]->uri; ?></p>
                   </td>
                 </tr>
                <tr>
-                 <td><?php echo $myoder->data->detail->flight_number; ?></td>
+                 <td><?php echo $myorder->data[0]->detail->flight_number; ?></td>
                </tr>
                <tr>
-                 <td><?php echo $myoder->data->detail->departure_time; ?>
-                 <br> <?php echo $myoder->data->detail->departure_airport_name; ?>-<?php echo $myoder->data->detail->departure_city; ?>
+                 <td><?php echo $myorder->data[0]->detail->departure_time; ?>
+                 <br> <?php echo $myorder->data[0]->detail->departure_airport_name; ?>-<?php echo $myorder->data[0]->detail->departure_city; ?>
                  </td>
                </tr>
                 <tr>
-                 <td> <?php echo $myoder->data->detail->arrival_time; ?>
-                 <br> <?php echo $myoder->data->detail->arrival_airport_name; ?>-<?php echo $myoder->data->detail->arrival_city; ?>
+                 <td> <?php echo $myorder->data[0]->detail->arrival_time; ?>
+                 <br> <?php echo $myorder->data[0]->detail->arrival_airport_name; ?>-<?php echo $myorder->data[0]->detail->arrival_city; ?>
                  </td>
                </tr>
                <tr>
                  <td>
-                 <?php echo $myoder->data->order_name; ?>
+                 <?php echo $myorder->data[0]->order_name; ?>
                  </td>
                </tr>
               </table>    
@@ -39,31 +40,22 @@
             <div id="data-diri" class = "col-xs-7">
              <table class="table">
                 <thead><h3>Informasi Penumpang</h3></thead>
-               <tr>
-                  <td>
-                      Nama Dewasa(1)
-                  </td>
-                  <td>
-                      (Tn) Riansyah Rafsanjani
-                  </td>
-                </tr>
-               <tr>
-                  <td>
-                      Nama Dewasa(2)
-                  </td>
-                  <td>
-                      (Tn) Rafsanjani
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                      Nama Anak(1)
-                  </td>
-                  <td>
-                      Riansyah Rafsanjani
-                  </td>
-                </tr>
-               
+                <?php
+                 foreach ($myorder->data[0]->detail->passengers as $key => $value) {
+                   foreach ($value as $key2 => $value2) 
+                   {
+                       echo '<tr>
+                      <td>
+                          '.$value2->type.'
+                      </td>
+                      <td>
+                          ('.$value2->title.') '.$value2->first_name.' '.$value2->last_name.'
+                      </td>
+                    </tr>';
+                   }
+                   
+                 }
+               ?>
               </table>    
            
             </div>
@@ -97,30 +89,17 @@
                       </div>
                </td>
                </thead>
-               <tr>
-                 <td>1 Dewasa</td>
-                 <td>IDR 2.450.000</td>
-               </tr>
-               <tr>
-                 <td>1 Anak</td>
-                 <td>IDR 2.450.000</td>
-               </tr>
-                <tr>
-                 <td>Pajak</td>
-                 <td>IDR 2.450.000</td>
-               </tr>
-               <tr>
-                 <td>Subtotal</td>
-                 <td>IDR 2.450.000</td>
-               </tr>
-               <tr>
-                 <td>diskon</td>
-                 <td>IDR 2.450.000</td>
-               </tr>
-              <tr>
-                 <td><b>Total Pembayaran</b></td>
-                 <td><b>IDR 2.450.000</b></td>
-               </tr>
+
+               <?php
+               foreach ($myorder->data[0]->detail->breakdown_price as $key => $value) {
+                 //echo ."<br>";
+                 echo '<tr>
+                 <td>'.$value->text.'</td>
+                 <td>'.$value->currency.'  '.number_format((int)$value->value).'</td>
+               </tr>';
+               }
+               ?>
+               
            </table>    
            
             </div>

@@ -28,6 +28,31 @@
 		
 		}
 
+		function insert_order($token)
+		{
+			
+			$data = array(
+			   'token' => $token,
+			   'status' => 0
+			);
+
+			$this->db->insert('order', $data); 
+		
+		}
+
+		function update_order($token,$xml)
+		{
+			// echo $token.' adalah: ';
+			// echo $xml;
+			$data = array(
+			   'response' => $xml,
+			   );
+
+			$this->db->where('token', $token);
+			$this->db->update('order', $data); 
+		}
+
+
 		function get_airport_list()
 		{
 			return $query = $this->db->get('airport')->result_array();
